@@ -33,15 +33,15 @@ export class SitePreview extends React.Component {
 
     return (
       <div className="site-preview">
-        <div>
-          <BS.Nav activeKey={this.previewSize} onSelect={this.setPreviewSize} bsStyle="pills">
+        <div className="clearfix">
+          <BS.Nav className="pull-right" activeKey={this.state.previewSize} onSelect={this.setPreviewSize} bsStyle="pills">
             <BS.NavItem eventKey={'mobile'}>mobile</BS.NavItem>
             <BS.NavItem eventKey={'tablet'}>tablet</BS.NavItem>
             <BS.NavItem eventKey={'desktop'}>desktop</BS.NavItem>
           </BS.Nav>
         </div>
         <div className={`site-preview-container ${this.state.previewSize}`}>
-          <div dangerouslySetInnerHTML={{ __html: sitePreview(this.props.data) }}></div>
+          <iframe className="iframe" srcDoc={sitePreview(this.props.data)} frameborder="0"></iframe>
         </div>
       </div>
     );
