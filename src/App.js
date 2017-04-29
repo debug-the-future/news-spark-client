@@ -4,8 +4,6 @@ import { formValueSelector } from 'redux-form';
 import * as BS from 'react-bootstrap';
 
 import Form from './components/form'
-import Landing from './components/landing'
-import Submission from './components/submission'
 import SitePreview from './components/SitePreview';
 import './App.css';
 
@@ -35,6 +33,7 @@ class App extends Component {
     const formData = this.props.data;
     return (
       <div className="container-fluid">
+        <div className="header">
         <BS.Row>
           <BS.Col
             lg={isLanding ? 12 : 3}
@@ -57,6 +56,7 @@ class App extends Component {
             <SitePreview data={formData} />
           </BS.Col>
         </BS.Row>
+        </div>
       </div>
     );
   }
@@ -64,8 +64,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   const formSelector = formValueSelector('form');
-  const formFields = ['headline', 'what', 'asset', 'details', 'hashtag'];
-  const formValues = formSelector(state, ...formFields);
+  const formFields = ['headline', 'what', 'asset', 'details', 'help', 'contact', 'hashtag'];
+  const formValues = formSelector(state, ...formFields);  
   return {
     data: formValues
   }
