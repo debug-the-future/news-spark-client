@@ -17,13 +17,14 @@ class App extends Component {
 
   handleSubmit = (values) => {
     console.log(values)
+    return { type: 'Submit' }
   }
 
   handleClick = (e) => {
-    e.preventDefault()
     this.setState({
       node: 'submission'
     })
+    return { type: 'PreviewSite' }
   }
 
   render() {
@@ -40,7 +41,7 @@ class App extends Component {
           >
             {
               isLanding
-              ? (<Landing onClick={this.handleClick} />)
+              ? (<Landing onSubmit={this.handleClick} />)
               : (<Submission onSubmit={this.handleSubmit} />)
             }
           </BS.Col>
