@@ -17,7 +17,7 @@ class App extends Component {
     }
   }
 
-  handleSubmit = (values) => {
+  handleSubmit = (values) => {    
     console.log(values)
     return { type: 'Submit' }
   }

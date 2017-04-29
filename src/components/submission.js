@@ -16,16 +16,16 @@ class Submission extends Component {
                 <Field name="what" component="input" type="textarea" rows={10} cols={30}/>
             </BS.FormGroup>
             <BS.FormGroup>            
-                <label htmlFor="asset">URL for Video for </label>
-                <Field name="asset" component="input" type="url"/>
-            </BS.FormGroup>
-            <BS.FormGroup>            
-                <label htmlFor="asset">More Details</label>
+                <label htmlFor="asset">URL for Video for Image</label>
                 <Field name="asset" component="input" type="text"/>
             </BS.FormGroup>
             <BS.FormGroup>            
-                <label htmlFor="asset">Hashtag</label>
-                <Field name="asset" component="input" type="url" placeholder="https://twitter.com/hashtag/fill-me"/>
+                <label htmlFor="details">More Details</label>
+                <Field name="details" component="input" type="text"/>
+            </BS.FormGroup>
+            <BS.FormGroup>            
+                <label htmlFor="hashtag">Hashtag</label>
+                <Field name="hashtag" component="input" type="url" placeholder="https://twitter.com/hashtag/fill-me"/>
             </BS.FormGroup>
             <BS.Button bsStyle="success" bsSize="large" type="submit">Submit </BS.Button>           
       </BS.Form>
