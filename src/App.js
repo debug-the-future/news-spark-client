@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   handleSubmit = (values) => {        
-    debugger
+    console.log(values)
     return { type: 'Submit' }
   }
 
