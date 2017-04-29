@@ -10,8 +10,9 @@ export const SitePreview = (props) => {
 
   return (
     <div className="site-preview">
-      Hello!
-      <div dangerouslySetInnerHTML={{ __html: sitePreview({ name: 'Bob' }) }}></div>
+      <div className="site-preview-container">
+        <div dangerouslySetInnerHTML={{ __html: sitePreview({ name: 'Bob' }) }}></div>
+      </div>
     </div>
   );
 }
