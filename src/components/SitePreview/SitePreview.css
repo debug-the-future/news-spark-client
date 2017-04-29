@@ -1,6 +1,24 @@
 .site-preview {
+  height: 100vh;
+  overflow: scroll;
+  padding-bottom: 140px;
 }
 
 .site-preview .site-preview-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 320px;
+  height: 568px;
+  margin: 0 auto;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.site-preview .site-preview-container.tablet {
+  width: 768px;
+  height: 1024px;
+}
+
+.site-preview .site-preview-container.desktop {
+  width: 100%;
+  height: auto;
 }
