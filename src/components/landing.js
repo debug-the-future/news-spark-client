@@ -11,7 +11,7 @@ class Landing extends Component {
                 <h1>Let's Begin</h1>
                 <BS.Form onSubmit={handleSubmit}>
                     <BS.FormGroup bsSize="large">
-                        <Field placeholder="What Happened?" name="what" component="input" type="textarea" rows={10} cols={30}/>
+                        <Field placeholder="What Happened?" name="headline" component="input" type="textarea" rows={10} cols={30}/>
                     </BS.FormGroup>
                     <BS.FormGroup bsSize="large">
                         <Field placeholder="Upload or Paste Image/Video" name="asset" component="input" type="text"/>
@@ -25,7 +25,8 @@ class Landing extends Component {
 
 
 Landing = reduxForm({
-  form: 'landing'
+  form: 'form',
+  destroyOnUnmount: false
 })(Landing);
 
  export default Landing

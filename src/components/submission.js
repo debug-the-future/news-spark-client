@@ -34,7 +34,8 @@ class Submission extends Component {
 }
 
 Submission = reduxForm({
-  form: 'submit'
+  form: 'form',
+  destroyOnUnmount: false
 })(Submission);
 
 export default Submission;
