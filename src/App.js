@@ -15,6 +15,7 @@ class App extends Component {
 
     this.state = {
       node: 'landing'
+      // node: 'submission'
     }
   }
 
@@ -24,14 +25,14 @@ class App extends Component {
     }
   }
 
-  handleSubmit = (values) => {        
+  handleSubmit = (values) => {
     console.log(values)
     return { type: 'Submit' }
   }
 
   render() {
     const isLanding = this.state.node === 'landing';
-    const formData = this.props.data; 
+    const formData = this.props.data;
     return (
       <div className="container-fluid">
         <BS.Row>
@@ -42,7 +43,7 @@ class App extends Component {
             xs={12}
           >
             <Form updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>
-            
+
           </BS.Col>
           <BS.Col
             lg={9}
@@ -64,7 +65,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   const formSelector = formValueSelector('form');
   const formFields = ['headline', 'what', 'asset', 'details', 'hashtag'];
-  const formValues = formSelector(state, ...formFields);  
+  const formValues = formSelector(state, ...formFields);
   return {
     data: formValues
   }

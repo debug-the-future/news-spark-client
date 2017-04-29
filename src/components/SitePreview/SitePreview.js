@@ -30,6 +30,14 @@ export class SitePreview extends React.Component {
 
   render() {
     const sitePreview = jade.compile(template);
+    const formData = this.props.data;
+    const data = {
+      headline: formData.headline || 'Cause Name Here',
+      hashtag: formData.hashtag || 'HashTag',
+      asset: formData.asset || '<iframe width="560" height="315" src="https://www.youtube.com/embed/-_Pb0Abb6hc?rel=0" frameborder="0" allowfullscreen></iframe>',
+      what: formData.what || 'What is happening placeholder.',
+      details: formData.details || 'Details placeholder text.',
+    }
 
     return (
       <div className="site-preview">
@@ -41,7 +49,7 @@ export class SitePreview extends React.Component {
           </BS.Nav>
         </div>
         <div className={`site-preview-container ${this.state.previewSize}`}>
-          <iframe className="iframe" srcDoc={sitePreview(this.props.data)} frameborder="0"></iframe>
+          <iframe className="iframe" srcDoc={sitePreview(data)} frameborder="0"></iframe>
         </div>
       </div>
     );

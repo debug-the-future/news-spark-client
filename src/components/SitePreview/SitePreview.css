@@ -26,5 +26,5 @@
 
 .site-preview .site-preview-container.desktop {
   width: 100%;
-  height: auto;
+  height: 100vh;
 }
