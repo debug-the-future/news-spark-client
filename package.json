@@ -8,6 +8,7 @@
   "dependencies": {
     "pug": "^2.0.0-beta.12",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
