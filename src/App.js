@@ -25,9 +25,17 @@ class App extends Component {
     }
   }
 
-  handleSubmit = (values) => {
-    console.log(values)
-    return { type: 'Submit' }
+  handleSubmit = async (values) => {
+    console.log('here', values)
+
+    try {
+      this.setState({ loading: true });
+      await fetch('ngrokURL', { type: 'POST', body: values });
+      this.setState({ success: true, loading: false });
+    } catch (err) {
+      console.warn(err);
+      this.setState({ success: false, loading: false });
+    }
   }
 
   render() {
