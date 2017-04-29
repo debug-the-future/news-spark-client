@@ -18,6 +18,12 @@ class App extends Component {
     }
   }
 
+  updateLanding = () => {
+    this.state = {
+      node: 'submission'
+    }
+  }
+
   handleSubmit = (values) => {        
     console.log(values)
     return { type: 'Submit' }
@@ -35,7 +41,7 @@ class App extends Component {
             sm={isLanding ? 12 : 6}
             xs={12}
           >
-            <Form onSubmit={this.handleSubmit}/>
+            <Form updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>
             
           </BS.Col>
           <BS.Col
@@ -56,10 +62,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const formSelector = formValueSelector('submit');
-  const formFields = ['headline', 'what', 'asset'];
-  const formValues = formSelector(state, ...formFields);
-
+  const formSelector = formValueSelector('form');
+  const formFields = ['headline', 'what', 'asset', 'details', 'hashtag'];
+  const formValues = formSelector(state, ...formFields);  
   return {
     data: formValues
   }

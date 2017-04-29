@@ -12,10 +12,10 @@ class Form extends Component {
         }
     }
     nextPage() {
-        this.setState(
-        { page: this.state.page + 1 })
-
+        this.setState({ page: this.state.page + 1 })
+        this.props.updateLanding();    
     }
+
     render() {
         const { onSubmit } = this.props
         const { page } = this.state
