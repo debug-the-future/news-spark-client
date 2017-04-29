@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -1625,4 +1624,3 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 =======
 # news-van-client
 The client facing site
->>>>>>> 023c67e0165a0aaca9805bc0beaa710c6706f46e
