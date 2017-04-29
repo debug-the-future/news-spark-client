@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { formValueSelector } from 'redux-form';
 import * as BS from 'react-bootstrap';
 
 import Landing from './components/landing'
@@ -29,6 +31,7 @@ class App extends Component {
 
   render() {
     const isLanding = this.state.node === 'landing';
+    const formData = this.props.data;
 
     return (
       <div className="container-fluid">
@@ -54,7 +57,7 @@ class App extends Component {
             smHidden={isLanding}
             xsHidden
           >
-            <SitePreview />
+            <SitePreview data={formData} />
           </BS.Col>
         </BS.Row>
       </div>
@@ -62,4 +65,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const formSelector = formValueSelector('submit');
+  const formFields = ['headline', 'what', 'asset'];
+  const formValues = formSelector(state, ...formFields);
+
+  return {
+    data: formValues
+  }
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,5 +1,5 @@
 export const template = `
-h1 Pug - node template engine
+h1 #{headline}
     #container.col
       p You, #{name}, are amazing
       p.
