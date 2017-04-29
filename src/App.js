@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import * as BS from 'react-bootstrap';
 
+import Form from './components/form'
 import Landing from './components/landing'
 import Submission from './components/submission'
 import SitePreview from './components/SitePreview';
@@ -17,22 +18,14 @@ class App extends Component {
     }
   }
 
-  handleSubmit = (values) => {    
-    console.log(values)
+  handleSubmit = (values) => {        
+    debugger
     return { type: 'Submit' }
-  }
-
-  handleClick = (e) => {
-    this.setState({
-      node: 'submission'
-    })
-    return { type: 'PreviewSite' }
   }
 
   render() {
     const isLanding = this.state.node === 'landing';
-    const formData = this.props.data;
-
+    const formData = this.props.data; 
     return (
       <div className="container-fluid">
         <BS.Row>
@@ -42,11 +35,8 @@ class App extends Component {
             sm={isLanding ? 12 : 6}
             xs={12}
           >
-            {
-              isLanding
-              ? (<Landing onSubmit={this.handleClick} />)
-              : (<Submission onSubmit={this.handleSubmit} />)
-            }
+            <Form onSubmit={this.handleSubmit}/>
+            
           </BS.Col>
           <BS.Col
             lg={9}
