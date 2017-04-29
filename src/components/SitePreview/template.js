@@ -27,6 +27,30 @@ html
         position: relative;
         padding-bottom: 56.25%;
         padding-top: 30px; height: 0; overflow: hidden;
+        background-color: black;
+      }
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 0;
+        width: 0;
+        margin-top: -14px;
+        margin-left: -10px;
+        border-left: solid 20px white;
+        border-top: solid 14px transparent;
+        border-bottom: solid 14px transparent;
+      }
+      .play-button:after{
+        content: "";
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        border: solid 1px white;
+        position: absolute;
+        left: -38px;
+        top: -24px;
+        border-radius: 30px;
       }
       .video-container iframe,
       .video-container object,
@@ -45,7 +69,8 @@ html
           h3
             strong \##{hashtag}
         .col.col-xs-12.video-container
-          iframe(width='853' height='480' src='https://www.youtube.com/embed/-_Pb0Abb6hc?rel=0' frameborder='0' allowfullscreen)
+          .play-button
+          iframe(width='853' height='480' src='#{asset}' frameborder='0' allowfullscreen)
         .col.col-xs-12
           h3 What is this all about?
           p #{what}
