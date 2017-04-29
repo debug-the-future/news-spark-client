@@ -19,6 +19,10 @@ export const SitePreview = (props) => {
 
 SitePreview.prototype = {
   data: PropTypes.shape({
-    name: PropTypes.string
+    headline: PropTypes.string,
+    what: PropTypes.string,
+    asset: PropTypes.string,
+    details: PropTypes.string,
+    hashtag: PropTypes.string,
   }).isRequired
 }
