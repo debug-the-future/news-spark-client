@@ -21,25 +21,6 @@
   background-color: rgba(241, 218, 205, 0.55);
 }
 
-.hero-box {
-  background: rgba(76,76,76,0.65);
-  padding: 20px;
-  letter-spacing: 3px;
-  word-spacing: 3px;
-  padding-bottom: 50px;
-  margin: 40px;
-  line-height: 1.5;
-}
-
-.hero-box-landing input {
-  width: 65%;
-}
-
-.fire {
-  background-color: #E25822;
-  border-color: white;
-}
-
 .form-container,
 .preview-container {
   transform: translate3d(0, 0, 0);
@@ -75,6 +56,28 @@
   visibility: hidden;
   opacity: 0;
 }
+
+.hero-box {
+  background: rgba(76,76,76,0.65);
+  padding: 20px;
+  letter-spacing: 3px;
+  word-spacing: 3px;
+  padding-bottom: 50px;
+  margin: 40px;
+  line-height: 1.5;
+}
+
+.hero-box-landing input {
+  width: 70%;
+}
+
+.fire {
+  background-color: #E25822;
+  border-color: white;
+}
+
+git 
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

@@ -77,4 +77,10 @@ html
         .col.col-xs-12
           h3 What else should I know?
           p #{details}
+        .col.col-xs-12
+          h3 How can I help?
+          p #{help}
+        .col.col-xs-12
+          h3 How can I contact you?
+          p #{contact}
 `;
