@@ -40,8 +40,8 @@ class App extends Component {
     const isLanding = this.state.node === 'landing';
     const formData = this.props.data;
     return (
-      <div className="container-fluid">
-        <div className="header">
+      <div className="header">
+        <div>
         <BS.Row>
           <BS.Col
             lg={isLanding ? 12 : 3}
@@ -49,7 +49,9 @@ class App extends Component {
             sm={isLanding ? 12 : 6}
             xs={12}
           >
-            <Form updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>
+            <Form              
+              updateLanding={this.updateLanding} 
+              onSubmit={this.handleSubmit}/>
 
           </BS.Col>
           <BS.Col
