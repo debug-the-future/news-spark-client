@@ -12,28 +12,33 @@
   background-position: center;
 }
 
-.row {
-  max-width: 1140px;
-  margin: 0 auto;
-}
-
-.hero-box { 
-  position: absolute; /* absolute is  to vertically and horizontally center */
-  top: 50%;
-  left: 50%;
-  /*transform: translate(-50%, 87%);*/
-  transform: translate(-50%, 100%);
+.hero-box-landing { 
   background: rgba(76,76,76,.65);
   padding: 20px;
   letter-spacing: 3px;
-  word-spacing: 3px;
-  padding-bottom: 50px;
-  
+  word-spacing: 3px; 
+  margin: 40px;
+  line-height: 1.5;
 }
 
+.hero-box-landing input {
+  width: 65%;
+}
+
+.fire {
+  background-color: #E25822;
+  border-color: white;
+
+}
 
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/*position: absolute; /* absolute is  to vertically and horizontally center */
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translate(-50%, 87%);*/
+  /*transform: translate(-50%, 100%);*/
