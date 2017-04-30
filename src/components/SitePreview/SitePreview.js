@@ -7,12 +7,21 @@ import * as _ from 'lodash';
 import { template } from './template'
 import './SitePreview.css';
 
-const isValidUrl = (url) =>
-  url &&
+const validateURL = (url) => {
+  const isValid = url &&
   url.length &&
   url.indexOf('http') > -1 &&
   url.indexOf('.') > -1 &&
   url.indexOf('/') > -1
+
+  if (isValid) {
+    return (url.indexOf('youtube') > -1 && url.indexOf('watch?v=') > -1)
+      ? url.replace('watch?v=', 'embed/')
+      : url;
+  }
+
+  return false;
+}
 
 export class SitePreview extends React.Component {
   prototype = {
@@ -59,7 +68,7 @@ export class SitePreview extends React.Component {
   getTemplateData = ({ data }) => ({
     headline: data.headline || 'Cause Name Here',
     hashtag: data.hashtag || 'HashTag',
-    asset: isValidUrl(data.asset) ? data.asset : ' ',
+    asset: validateURL(data.asset) || ' ',
     what: data.what || 'What is happening placeholder.',
     details: data.details || 'Details placeholder text.',
     help: data.help || 'Help',

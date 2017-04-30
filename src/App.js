@@ -37,7 +37,7 @@ class App extends Component {
         }
       });
       const { data } = await response.json();
-      console.log('data', data);
+      console.log('data', data._id);
       this.setState({ success: true, loading: false });
     } catch (err) {
       console.warn(err);
