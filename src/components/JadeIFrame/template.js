@@ -52,6 +52,9 @@ html
         top: -24px;
         border-radius: 30px;
       }
+      .video-container{
+        margin: auto -15px;
+      }
       .video-container iframe,
       .video-container object,
       .video-container embed {
