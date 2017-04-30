@@ -4,6 +4,8 @@
 }
 
 .app-container {
+  display: flex;
+  align-items: center;
   height: 100vh;
   background-image: url('./images/protest-min.jpg');
   background-size: cover;
