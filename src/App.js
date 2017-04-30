@@ -14,8 +14,8 @@ class App extends Component {
 
     this.state = {
       node: 'landing',
-      success: false,
-      data: null      
+      success: false,      
+      id: null      
     }
   }
 
@@ -27,15 +27,24 @@ class App extends Component {
 
   updateSuccess = () => {    
     this.setState({
-      success: false,
+      success: false,      
     })
   }
 
   handleSubmit = async (values) => {
-    console.log('here', values)
+    const { id } = this.state
+    console.log('values at handle', values)
+
+    // const url = id
+    //   ? `http://06deff9c.ngrok.io/api/site/:${id}`
+    //   : 'http://06deff9c.ngrok.io/api/site'
+
+    // const method = id
+    //   ? 'PUT'
+    //   : 'POST'
 
     try {
-      this.setState({ loading: true });
+      this.setState({ loading: true });           
       const response = await fetch('http://06deff9c.ngrok.io/api/site', {
         method: 'POST',
         body: JSON.stringify(values),
@@ -46,7 +55,7 @@ class App extends Component {
       });
       const { data } = await response.json();      
       console.log('data', data);
-      this.setState({ success: true, loading: false, data: data });
+      this.setState({ success: true, loading: false, id: data._id });
     } catch (err) {
       console.warn(err);
       this.setState({ success: false, loading: false });
@@ -72,7 +81,7 @@ class App extends Component {
           
           {
             success
-              ? <View id={this.state.data._id} onClick={this.updateSuccess} />
+              ? <View id={this.state.id} onClick={this.updateSuccess} />
               : <Form page={this.state.node === 'landing' ? 1 : 2} updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>  
           }
           
