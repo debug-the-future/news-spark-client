@@ -32,11 +32,11 @@ class Submission extends Component {
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="hashtag">Do you have a hashtag?</label>
-                    <Field name="hashtag" component={TextInput} placeholder="https://twitter.com/hashtag/fill-me"/>
+                    <Field name="hashtag" component={TextInput} placeholder="#"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="contact">How can people contact you?</label>
-                    <Field name="contact" component={TextInput} placeholder="hashtag"/>
+                    <Field name="contact" component={TextInput} placeholder="Email/Phone"/>
                 </BS.FormGroup>
                 <BS.Button className="fire" bsSize="large" type="submit">Submit </BS.Button>
         </BS.Form>
