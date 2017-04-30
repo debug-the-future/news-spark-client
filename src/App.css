@@ -4,8 +4,6 @@
 }
 
 .app-container {
-  display: flex;
-  align-items: center;
   height: 100vh;
   background-image: url('./images/protest-min.jpg');
   background-size: cover;
@@ -45,17 +43,25 @@
 .form-container,
 .preview-container {
   transform: translate3d(0, 0, 0);
-  transition: margin ease-in-out .6s, opacity ease-in-out .4s .4s, background ease-in-out .4s .4s;
+  transition: margin ease-in-out .6s,
+              opacity ease-in-out .4s .4s,
+              background ease-in-out .4s .4s,
+              box-shadow ease-in-out .4s .4s;
 }
 
 .form-container {
   z-index: 2;
+  display: flex;
+  align-items: center;
   position: relative;
-  background: white;;
+  height: 100%;
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .is-landing .form-container {
   background: none;
+  box-shadow: none;
 }
 
 .preview-container {
@@ -70,17 +76,7 @@
   opacity: 0;
 }
 
-
-
-
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-/*position: absolute; /* absolute is  to vertically and horizontally center */
-  /*top: 50%;*/
-  /*left: 50%;*/
-  /*transform: translate(-50%, 87%);*/
-  /*transform: translate(-50%, 100%);*/
