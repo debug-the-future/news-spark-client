@@ -60,6 +60,20 @@ html
         left: 0;
         width: 100%;
         height: 100%;
+        margin: auto -15px;
+      }
+      @media only screen and (min-width : 992px) {
+        .video-container,
+        .video-container,
+        .video-container {
+          position: relative;
+          width: initial;
+          height: initial;
+          margin: 0 auto;
+          max-width: 560px;
+          max-height: 315px;
+          margin-top: 4rem;
+        }
       }
   body
     .container-fluid
@@ -68,19 +82,22 @@ html
           h1 #{headline}
           h3
             strong \##{hashtag}
-        .col.col-xs-12.video-container
-          .play-button
-          iframe(width='853' height='480' src='#{asset}' frameborder='0' allowfullscreen)
-        .col.col-xs-12
-          h3 What is this all about?
-          p #{what}
-        .col.col-xs-12
-          h3 What else should I know?
-          p #{details}
-        .col.col-xs-12
-          h3 How can I help?
-          p #{help}
-        .col.col-xs-12
-          h3 How can I contact you?
-          p #{contact}
+        .col.col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+          .row
+            .col.col-xs-12.col-md-6.col-md-push-6
+              .video-container
+                .play-button
+                iframe(width='853' height='480' src='#{asset}' frameborder='0' allowfullscreen)
+            .col.col-xs-12.col-md-6.col-md-pull-6
+              h3 What is this all about?
+              p #{what}
+            .col.col-xs-12.col-md-6.col-md-pull-6
+              h3 What else should I know?
+              p #{details}
+            .col.col-xs-12.col-md-6.col-md-pull-6
+              h3 How can I help?
+              p #{help}
+            .col.col-xs-12.col-md-6.col-md-pull-6
+              h3 How can I contact you?
+              p #{contact}
 `;
