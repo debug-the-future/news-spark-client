@@ -63,7 +63,7 @@ export class SitePreview extends React.Component {
     what: data.what || 'What is happening placeholder.',
     details: data.details || 'Details placeholder text.',
     help: data.help || 'Help',
-    contact: data.help || 'Contact Info'
+    contact: data.contact || 'Contact Info'
   })
 
   setPreviewSize = (size) => {
