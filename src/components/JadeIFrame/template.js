@@ -64,6 +64,7 @@ html
         width: 100%;
         height: 100%;
         margin: auto -15px;
+        left: 15px;
       }
       @media only screen and (min-width : 992px) {
         .video-container,
