@@ -4,11 +4,11 @@ html
   head
     title #{headline}
     link(href='https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css', rel='stylesheet')
-    link(href='https://fonts.googleapis.com/css?family=Open+Sans|Slabo+27px', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Roboto|Slabo+27px', rel='stylesheet')
     style(type='text/css').
       html {
         box-sizing: border-box;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto', sans-serif;
       }
       h1,
       h2,
