@@ -20,9 +20,15 @@ class App extends Component {
   }
 
   updateLanding = () => {
-    this.state = {
+    this.setState({
       node: 'submission'
-    }
+    })
+  }
+
+  updateSuccess = () => {    
+    this.setState({
+      success: false,
+    })
   }
 
   handleSubmit = async (values) => {
@@ -65,7 +71,9 @@ class App extends Component {
         >
           
           {
-            success ? <View id={this.state.data._id} /> : <Form updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>  
+            success
+              ? <View id={this.state.data._id} onClick={this.updateSuccess} />
+              : <Form page={this.state.node === 'landing' ? 1 : 2} updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>  
           }
           
            
