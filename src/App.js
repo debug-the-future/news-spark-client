@@ -4,6 +4,7 @@ import { formValueSelector } from 'redux-form';
 import * as BS from 'react-bootstrap';
 
 import Form from './components/form'
+import View from './components/view'
 import SitePreview from './components/SitePreview';
 import './App.css';
 
@@ -12,8 +13,9 @@ class App extends Component {
     super(props)
 
     this.state = {
-      node: 'landing'
-      // node: 'submission'
+      node: 'landing',
+      success: false,
+      data: null      
     }
   }
 
@@ -38,7 +40,7 @@ class App extends Component {
       });
       const { data } = await response.json();
       console.log('data', data);
-      this.setState({ success: true, loading: false });
+      this.setState({ success: true, loading: false, data: data });
     } catch (err) {
       console.warn(err);
       this.setState({ success: false, loading: false });
@@ -47,6 +49,7 @@ class App extends Component {
 
   render() {
     const isLanding = this.state.node === 'landing';
+    const success = this.state.success;
     const formData = this.props.data;
     return (
       <BS.Row className={`app-container ${isLanding ? 'is-landing' : ''}`}>
@@ -60,10 +63,12 @@ class App extends Component {
           smOffset={isLanding ? 3 : 0}
           xs={12}
         >
-          <Form
-            updateLanding={this.updateLanding}
-            onSubmit={this.handleSubmit}
-          />
+          
+          {
+            success ? <View id={this.state.data._id} /> : <Form updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>  
+          }
+          
+           
         </BS.Col>
         <BS.Col
           className={"preview-container"}

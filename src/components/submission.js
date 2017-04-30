@@ -36,7 +36,7 @@ class Submission extends Component {
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="contact">How can people contact you?</label>
-                    <Field name="contact" component={TextInput} placeholder="hashtag"/>
+                    <Field name="contact" component={TextInput} placeholder="contact"/>
                 </BS.FormGroup>
                 <BS.Button className="fire" bsSize="large" type="submit">Submit </BS.Button>
         </BS.Form>
