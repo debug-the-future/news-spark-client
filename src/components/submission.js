@@ -16,29 +16,29 @@ class Submission extends Component {
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="what">What is this all about?</label>
-                    <Field name="what" component="input" type="textarea" rows={10} cols={30}/>
+                    <Field name="what" component={TextInput} type="textarea" rows={10} cols={30}/>
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="asset">URL for Video for Image</label>
-                    <Field name="asset" component="input" type="text"/>
+                    <Field name="asset" component={TextInput} type="text"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="details">What else should people know?</label>
-                    <Field name="details" component="input" type="text"/>
+                    <Field name="details" component={TextInput} type="text"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="help">How can people help?</label>
-                    <Field name="help" component="input" type="text"/>
+                    <Field name="help" component={TextInput} type="text"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="hashtag">Do you have a hashtag?</label>
-                    <Field name="hashtag" component="input" type="url" placeholder="https://twitter.com/hashtag/fill-me"/>
+                    <Field name="hashtag" component={TextInput} type="url" placeholder="https://twitter.com/hashtag/fill-me"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
                     <label htmlFor="contact">How can people contact you?</label>
-                    <Field name="contact" component="input" type="url" placeholder="https://twitter.com/hashtag/fill-me"/>
+                    <Field name="contact" component={TextInput} type="url" placeholder="https://twitter.com/hashtag/fill-me"/>
                 </BS.FormGroup>
-                <BS.Button bsStyle="success" bsSize="large" type="submit">Submit </BS.Button>
+                <BS.Button className="fire" bsSize="large" type="submit">Submit </BS.Button>
         </BS.Form>
     </div>
     );

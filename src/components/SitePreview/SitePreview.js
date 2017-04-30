@@ -69,6 +69,8 @@ export class SitePreview extends React.Component {
       asset: formData.asset || 'https://www.youtube.com/embed/-_Pb0Abb6hc?rel=0',
       what: formData.what || 'What is happening placeholder.',
       details: formData.details || 'Details placeholder text.',
+      help: formData.help || 'Help',
+      contact: formData.help || 'Contact Info'      
     }
 
     return (
