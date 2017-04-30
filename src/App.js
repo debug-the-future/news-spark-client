@@ -28,7 +28,12 @@ class App extends Component {
 
     try {
       this.setState({ loading: true });
-      await fetch('ngrokURL', { type: 'POST', body: values });
+      await fetch('http://06deff9c.ngrok.io/api/site', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      });
       this.setState({ success: true, loading: false });
     } catch (err) {
       console.warn(err);
