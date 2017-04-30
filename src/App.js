@@ -40,10 +40,10 @@ class App extends Component {
     const isLanding = this.state.node === 'landing';
     const formData = this.props.data;
     return (
-      <div className="header">
-        <div>
+      <div className={`app-container ${isLanding ? 'is-landing' : ''}`}>
         <BS.Row>
           <BS.Col
+            className={"form-container"}
             lg={4}
             lgOffset={isLanding ? 4 : 0}
             md={4}
@@ -52,24 +52,21 @@ class App extends Component {
             smOffset={isLanding ? 3 : 0}
             xs={12}
           >
-            <Form              
-              updateLanding={this.updateLanding} 
-              onSubmit={this.handleSubmit}/>
-
+            <Form
+              updateLanding={this.updateLanding}
+              onSubmit={this.handleSubmit}
+            />
           </BS.Col>
           <BS.Col
+            className={"preview-container"}
             lg={8}
             md={8}
             sm={6}
-            lgHidden={isLanding}
-            mdHidden={isLanding}
-            smHidden={isLanding}
             xsHidden
           >
             <SitePreview data={formData} />
           </BS.Col>
         </BS.Row>
-        </div>
       </div>
     );
   }
