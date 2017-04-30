@@ -11,7 +11,7 @@ class Submission extends Component {
         <div className="hero-box-submission">
             <BS.Form onSubmit={handleSubmit}>
                 <BS.FormGroup>
-                    <label htmlFor="headling">Headline</label>
+                    <label htmlFor="headling">What happened?</label>
                     <Field name="headline" component={TextInput} type="text" placeholder="In 120 words or less"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
@@ -19,7 +19,7 @@ class Submission extends Component {
                     <Field name="what" component={TextInput} type="textarea" rows={10} cols={30}/>
                 </BS.FormGroup>
                 <BS.FormGroup>
-                    <label htmlFor="asset">URL for Video for Image</label>
+                    <label htmlFor="asset">What is the video URL?</label>
                     <Field name="asset" component={TextInput} type="text"/>
                 </BS.FormGroup>
                 <BS.FormGroup>
@@ -38,7 +38,7 @@ class Submission extends Component {
                     <label htmlFor="contact">How can people contact you?</label>
                     <Field name="contact" component={TextInput} placeholder="Email/Phone"/>
                 </BS.FormGroup>
-                <BS.Button className="fire" bsSize="large" type="submit">Submit </BS.Button>
+                <BS.Button className="fire" bsSize="large" type="submit">Create Your Site</BS.Button>
         </BS.Form>
     </div>
     );
