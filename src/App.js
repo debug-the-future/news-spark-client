@@ -14,8 +14,8 @@ class App extends Component {
 
     this.state = {
       node: 'landing',
-      success: false,      
-      id: null      
+      success: false,
+      id: null
     }
   }
 
@@ -25,9 +25,9 @@ class App extends Component {
     })
   }
 
-  updateSuccess = () => {    
+  updateSuccess = () => {
     this.setState({
-      success: false,      
+      success: false,
     })
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
     //   : 'POST'
 
     try {
-      this.setState({ loading: true });           
+      this.setState({ loading: true });
       const response = await fetch('http://06deff9c.ngrok.io/api/site', {
         method: 'POST',
         body: JSON.stringify(values),
@@ -53,7 +53,7 @@ class App extends Component {
           'Content-Type': 'application/json',
         }
       });
-      const { data } = await response.json();      
+      const { data } = await response.json();
       console.log('data', data);
       this.setState({ success: true, loading: false, id: data._id });
     } catch (err) {
@@ -78,14 +78,14 @@ class App extends Component {
           smOffset={isLanding ? 3 : 0}
           xs={12}
         >
-          
+
           {
             success
               ? <View id={this.state.id} onClick={this.updateSuccess} />
-              : <Form page={this.state.node === 'landing' ? 1 : 2} updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>  
+              : <Form page={this.state.node === 'landing' ? 1 : 2} updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>
           }
-          
-           
+
+
         </BS.Col>
         <BS.Col
           className={"preview-container"}

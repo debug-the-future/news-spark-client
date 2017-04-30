@@ -7,11 +7,11 @@ class Form extends Component {
         const { onSubmit, page } = this.props
 
         return(
-            <div>
+            <div style={{ width: '100%' }}>
                 {page === 1 && <Landing onSubmit={this.props.updateLanding} />}
                 {page === 2 && <Submission onSubmit={this.props.onSubmit} />}
             </div>
-            
+
         )
     }
 }

@@ -19,7 +19,7 @@ html
       }
       .hero {
         padding: 28px 0;
-        background: gray;
+        background: #2b2929;
         color: white;
         text-align: center;
       }
@@ -84,7 +84,7 @@ html
             strong \##{hashtag}
         .col.col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
           .row
-            .col.col-xs-12.col-md-6.col-md-push-6
+            .col.col-xs-12.col-md-6.col-md-push-6.black
               .video-container
                 .play-button
                 iframe(width='853' height='480' src='#{asset}' frameborder='0' allowfullscreen)
