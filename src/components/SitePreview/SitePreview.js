@@ -2,9 +2,17 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import jade from 'jade';
 import * as BS from 'react-bootstrap';
+import * as _ from 'lodash';
 
 import { template } from './template'
 import './SitePreview.css';
+
+const isValidUrl = (url) =>
+  url &&
+  url.length &&
+  url.indexOf('http') > -1 &&
+  url.indexOf('.') > -1 &&
+  url.indexOf('/') > -1
 
 export class SitePreview extends React.Component {
   prototype = {
@@ -17,12 +25,46 @@ export class SitePreview extends React.Component {
     }).isRequired
   }
 
+  sitePreview = jade.compile(template);
+
   constructor(props) {
     super(props);
     this.state = {
-      previewSize: 'mobile'
+      previewSize: 'mobile',
+      templateString: this.sitePreview(this.getTemplateData(this.props)),
+      loading: false,
     }
   }
+
+  componentWillReceiveProps(nextProps) {
+    const oldData = this.getTemplateData(this.props);
+    const newData = this.getTemplateData(nextProps);
+
+    if (!_.isEqual(oldData, newData)) {
+      this.setState({ loading: true });
+      clearTimeout(this.debounceTimer);
+      this.debounceTimer = setTimeout(this.updateTemplateString, 300);
+    }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.debounceTimer);
+  }
+
+  updateTemplateString = () => {
+    const templateString = this.sitePreview(this.getTemplateData(this.props));
+    this.setState({ templateString, loading: false });
+  }
+
+  getTemplateData = ({ data }) => ({
+    headline: data.headline || 'Cause Name Here',
+    hashtag: data.hashtag || 'HashTag',
+    asset: isValidUrl(data.asset) ? data.asset : ' ',
+    what: data.what || 'What is happening placeholder.',
+    details: data.details || 'Details placeholder text.',
+    help: data.help || 'Help',
+    contact: data.help || 'Contact Info'
+  })
 
   setPreviewSize = (size) => {
     this.setState({ previewSize: size });
@@ -62,16 +104,6 @@ export class SitePreview extends React.Component {
 
   render() {
     const sitePreview = jade.compile(template);
-    const formData = this.props.data;
-    const data = {
-      headline: formData.headline || 'Cause Name Here',
-      hashtag: formData.hashtag || 'HashTag',
-      asset: formData.asset || 'https://www.youtube.com/embed/-_Pb0Abb6hc?rel=0',
-      what: formData.what || 'What is happening placeholder.',
-      details: formData.details || 'Details placeholder text.',
-      help: formData.help || 'Help',
-      contact: formData.help || 'Contact Info'      
-    }
 
     return (
       <div className="site-preview">
@@ -82,10 +114,14 @@ export class SitePreview extends React.Component {
             <BS.NavItem eventKey={'desktop'}>desktop</BS.NavItem>
           </BS.Nav>
         </div>
-        <div className={`site-preview-container ${this.state.previewSize}`}>
+        <div className={`
+          site-preview-container
+          ${this.state.previewSize}
+          ${this.state.loading ? 'is-loading' : ''}
+        `}>
           <iframe
             className="iframe"
-            srcDoc={sitePreview(data)}
+            srcDoc={this.state.templateString}
             frameBorder="0"
             style={this.getStylesForZoom(this.getZoomAmount())}>
           >
