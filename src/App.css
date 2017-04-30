@@ -21,7 +21,14 @@
   position: absolute; /* absolute is  to vertically and horizontally center */
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 100%)
+  /*transform: translate(-50%, 87%);*/
+  transform: translate(-50%, 100%);
+  background: rgba(76,76,76,.65);
+  padding: 20px;
+  letter-spacing: 3px;
+  word-spacing: 3px;
+  padding-bottom: 50px;
+  
 }
 
 
