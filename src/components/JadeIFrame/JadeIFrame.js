@@ -5,14 +5,14 @@ import * as BS from 'react-bootstrap';
 import * as _ from 'lodash';
 
 import { template } from './template'
-import './SitePreview.css';
+import './JadeIFrame.css';
 
 const validateURL = (url) => {
   const isValid = url &&
-  url.length &&
-  url.indexOf('http') > -1 &&
-  url.indexOf('.') > -1 &&
-  url.indexOf('/') > -1
+    url.length &&
+    url.indexOf('http') > -1 &&
+    url.indexOf('.') > -1 &&
+    url.indexOf('/') > -1
 
   if (isValid) {
     return (url.indexOf('youtube') > -1 && url.indexOf('watch?v=') > -1)
@@ -23,7 +23,7 @@ const validateURL = (url) => {
   return false;
 }
 
-export class SitePreview extends React.Component {
+export class JadeIFrame extends React.Component {
   prototype = {
     data: PropTypes.shape({
       headline: PropTypes.string,
@@ -80,7 +80,7 @@ export class SitePreview extends React.Component {
   }
 
   getZoomAmount = () => {
-    switch(this.state.previewSize) {
+    switch (this.state.previewSize) {
       case 'desktop':
         return 0.33;
       case 'tablet':
@@ -112,31 +112,14 @@ export class SitePreview extends React.Component {
   }
 
   render() {
-    const sitePreview = jade.compile(template);
-
     return (
-      <div className="site-preview">
-        <div className="clearfix">
-          <BS.Nav className="pull-right" activeKey={this.state.previewSize} onSelect={this.setPreviewSize} bsStyle="pills">
-            <BS.NavItem eventKey={'mobile'}>mobile</BS.NavItem>
-            <BS.NavItem eventKey={'tablet'}>tablet</BS.NavItem>
-            <BS.NavItem eventKey={'desktop'}>desktop</BS.NavItem>
-          </BS.Nav>
-        </div>
-        <div className={`
-          site-preview-container
-          ${this.state.previewSize}
-          ${this.state.loading ? 'is-loading' : ''}
-        `}>
-          <iframe
-            className="iframe"
-            srcDoc={this.state.templateString}
-            frameBorder="0"
-            style={this.getStylesForZoom(this.getZoomAmount())}>
-          >
-          </iframe>
-        </div>
-      </div>
+      <iframe
+        className="iframe"
+        srcDoc={this.state.templateString}
+        frameBorder="0"
+        {...this.props}
+        >
+      </iframe>
     );
   }
 }
