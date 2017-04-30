@@ -1,0 +1,5 @@
+application:
+  build: .
+  command:  npm run start
+  ports:
+   - "80:80"
