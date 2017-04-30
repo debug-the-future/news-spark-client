@@ -7,16 +7,16 @@ class Landing extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <div className="hero-box">            
-                <h1>Let's Begin</h1>
+            <div className="hero-box-landing">            
+                <h1>Light a Match</h1>
                 <BS.Form onSubmit={handleSubmit}>
                     <BS.FormGroup bsSize="large">
                         <Field placeholder="What Happened?" name="headline" component="input" type="textarea" rows={10} cols={30}/>
                  </BS.FormGroup>
                     <BS.FormGroup bsSize="large">
-                        <Field placeholder="Upload or Paste Image/Video" name="asset" component="input" type="text"/>
+                        <Field placeholder="Paste Image/Video URL" name="asset" component="input" type="text"/>
                     </BS.FormGroup>
-                        <BS.Button bsStyle="success" bsSize="large" type="submit">Get Live Site</BS.Button>
+                        <BS.Button className="fire" bsSize="large" type="submit">Get Live Site</BS.Button>
                 </BS.Form>                                         
             </div>
         )
