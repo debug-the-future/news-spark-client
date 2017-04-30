@@ -28,12 +28,16 @@ class App extends Component {
 
     try {
       this.setState({ loading: true });
-      await fetch('http://06deff9c.ngrok.io/api/site', {
+      const response = await fetch('http://06deff9c.ngrok.io/api/site', {
         method: 'POST',
         body: JSON.stringify(values),
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }
       });
+      const { data } = await response.json();
+      console.log('data', data);
       this.setState({ success: true, loading: false });
     } catch (err) {
       console.warn(err);
