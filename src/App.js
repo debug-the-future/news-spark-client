@@ -5,6 +5,7 @@ import * as BS from 'react-bootstrap';
 
 import Form from './components/form'
 import SitePreview from './components/SitePreview';
+import Loading from './components/loading'
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,9 @@ class App extends Component {
     super(props)
 
     this.state = {
-      node: 'landing'
+      node: 'landing',
+      loading: false,
+      success: false
       // node: 'submission'
     }
   }
@@ -25,7 +28,6 @@ class App extends Component {
 
   handleSubmit = async (values) => {
     console.log('here', values)
-
     try {
       this.setState({ loading: true });
       await fetch('ngrokURL', { type: 'POST', body: values });
@@ -38,6 +40,8 @@ class App extends Component {
 
   render() {
     const isLanding = this.state.node === 'landing';
+    const isLoading = this.state.loading;
+    const isSuccessful = this.state.success;
     const formData = this.props.data;
     return (
       <BS.Row className={`app-container ${isLanding ? 'is-landing' : ''}`}>
@@ -55,6 +59,10 @@ class App extends Component {
             updateLanding={this.updateLanding}
             onSubmit={this.handleSubmit}
           />
+          {
+            isLoading ? <Loading /> : null
+          }
+          
         </BS.Col>
         <BS.Col
           className={"preview-container"}
