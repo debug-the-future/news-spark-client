@@ -28,6 +28,38 @@ export class SitePreview extends React.Component {
     this.setState({ previewSize: size });
   }
 
+  getZoomAmount = () => {
+    switch(this.state.previewSize) {
+      case 'desktop':
+        return 0.33;
+      case 'tablet':
+        return 0.5;
+      case 'mobile':
+      default:
+        return 1;
+    }
+  }
+
+  getStylesForZoom = (zoom) => {
+    if (zoom > 1) {
+      return {
+        background: '#FFF',
+        position: 'absolute',
+        height: '100%',
+        width: (100 / zoom) + '%',
+        left: 50 * (1 - 1 / zoom) + '%',
+      };
+    }
+
+    return {
+      background: '#FFF',
+      transform: 'scale(' + zoom + ')',
+      transformOrigin: '0 0',
+      height: (100 / zoom) + '%',
+      width: (100 / zoom) + '%',
+    };
+  }
+
   render() {
     const sitePreview = jade.compile(template);
     const formData = this.props.data;
@@ -49,7 +81,13 @@ export class SitePreview extends React.Component {
           </BS.Nav>
         </div>
         <div className={`site-preview-container ${this.state.previewSize}`}>
-          <iframe className="iframe" srcDoc={sitePreview(data)} frameBorder="0"></iframe>
+          <iframe
+            className="iframe"
+            srcDoc={sitePreview(data)}
+            frameBorder="0"
+            style={this.getStylesForZoom(this.getZoomAmount())}>
+          >
+          </iframe>
         </div>
       </div>
     );
