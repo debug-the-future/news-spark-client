@@ -7,7 +7,7 @@
 .site-preview .site-preview-container {
   position: relative;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: hidden;
   width: 320px;
   height: 568px;
   margin: 0 auto;
