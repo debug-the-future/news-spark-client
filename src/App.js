@@ -44,16 +44,19 @@ class App extends Component {
         <div className="header">
         <BS.Row>
           <BS.Col
-            lg={isLanding ? 12 : 3}
-            md={isLanding ? 12 : 4}
-            sm={isLanding ? 12 : 6}
+            lg={4}
+            lgOffset={isLanding ? 4 : 0}
+            md={4}
+            mdOffset={isLanding ? 4 : 0}
+            sm={6}
+            smOffset={isLanding ? 3 : 0}
             xs={12}
           >
             <Form updateLanding={this.updateLanding} onSubmit={this.handleSubmit}/>
 
           </BS.Col>
           <BS.Col
-            lg={9}
+            lg={8}
             md={8}
             sm={6}
             lgHidden={isLanding}
@@ -73,7 +76,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   const formSelector = formValueSelector('form');
   const formFields = ['headline', 'what', 'asset', 'details', 'help', 'contact', 'hashtag'];
-  const formValues = formSelector(state, ...formFields);  
+  const formValues = formSelector(state, ...formFields);
   return {
     data: formValues
   }
